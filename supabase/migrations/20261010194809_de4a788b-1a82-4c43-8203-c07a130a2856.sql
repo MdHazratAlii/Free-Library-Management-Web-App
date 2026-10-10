@@ -1,0 +1,11 @@
+CREATE ROLE health_check_executor NOLOGIN NOINHERIT;
+GRANT health_check_executor TO postgres;
+GRANT USAGE ON SCHEMA public TO health_check_executor;
+GRANT SELECT, UPDATE ON public.health_check_limits TO health_check_executor;
+CREATE POLICY "Health executor manages counter" ON public.health_check_limits FOR ALL TO health_check_executor USING (id = 1) WITH CHECK (id = 1);
+CREATE POLICY "Deny direct public counter access" ON public.health_check_limits FOR ALL TO anon, authenticated USING (false) WITH CHECK (false);
+GRANT CREATE ON SCHEMA public TO health_check_executor;
+ALTER FUNCTION public.check_keep_alive() OWNER TO health_check_executor;
+REVOKE CREATE ON SCHEMA public FROM health_check_executor;
+REVOKE ALL ON FUNCTION public.check_keep_alive() FROM PUBLIC, authenticated;
+GRANT EXECUTE ON FUNCTION public.check_keep_alive() TO anon;

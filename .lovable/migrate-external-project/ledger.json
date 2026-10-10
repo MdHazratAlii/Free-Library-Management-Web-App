@@ -1,0 +1,93 @@
+[
+  {
+    "capability": "code",
+    "source": "Uploaded TanStack Start source",
+    "outcome": "import",
+    "status": "verified",
+    "next_action": "Imported screens open without browser errors"
+  },
+  {
+    "capability": "schema",
+    "source": "Connected Supabase library schema",
+    "outcome": "preserve",
+    "status": "verified",
+    "next_action": "Existing tables match source"
+  },
+  {
+    "capability": "records",
+    "source": "Connected Supabase",
+    "outcome": "preserve",
+    "status": "pending",
+    "next_action": "Verify existing connection; do not overwrite records"
+  },
+  {
+    "capability": "auth identities",
+    "source": "Connected external Supabase",
+    "outcome": "preserve",
+    "status": "pending",
+    "next_action": "External sign-in cannot be tested without user interaction"
+  },
+  {
+    "capability": "authorization",
+    "source": "Existing admin RLS and user_roles",
+    "outcome": "preserve",
+    "status": "implemented",
+    "next_action": "Role reads preserved; cached authorization fallback removed; signed-in verification unavailable"
+  },
+  {
+    "capability": "uploaded file bytes",
+    "source": "Existing library-images bucket",
+    "outcome": "preserve",
+    "status": "pending",
+    "next_action": "Preserve existing storage connection"
+  },
+  {
+    "capability": "external providers",
+    "source": "None beyond Supabase and font CDNs",
+    "outcome": "preserve",
+    "status": "pending",
+    "next_action": "Verify browser rendering"
+  },
+  {
+    "capability": "public endpoints and callbacks",
+    "source": "Public / and /auth",
+    "outcome": "import",
+    "status": "verified",
+    "next_action": "Home and auth redirect checked"
+  },
+  {
+    "capability": "webhooks and schedules",
+    "source": "Not detected",
+    "outcome": "none",
+    "status": "verified",
+    "next_action": "None"
+  },
+  {
+    "capability": "secrets",
+    "source": "Existing managed Supabase environment",
+    "outcome": "preserve",
+    "status": "verified",
+    "next_action": "Do not import uploaded .env"
+  },
+  {
+    "capability": "PWA",
+    "source": "Uploaded install and offline support",
+    "outcome": "import",
+    "status": "implemented",
+    "next_action": "No worker registered in preview; published offline behavior remains unverified"
+  },
+  {
+    "capability": "cutover",
+    "source": "Not published",
+    "outcome": "pending",
+    "status": "pending",
+    "next_action": "Publish only on request"
+  },
+  {
+    "capability": "verification",
+    "source": "Browser and automatic checks",
+    "outcome": "verify",
+    "status": "partial",
+    "next_action": "Sign-in screen checked; authenticated actions require external Supabase sign-in"
+  }
+]
